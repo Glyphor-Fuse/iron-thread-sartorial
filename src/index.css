@@ -1,1 +1,182 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --color-charcoal: #121212;
+  --color-iron: #2C2C2C;
+  --color-steel: #8E8E8E;
+  --color-paper: #F9F9F9;
+  --color-white: #FFFFFF;
+  
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --spacing-unit: 8px;
+  --max-width: 1440px;
+  
+  --transition-discipline: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* Structural Elements */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 calc(var(--spacing-unit) * 4);
+}
+
+.section-padding {
+  padding: calc(var(--spacing-unit) * 12) 0;
+}
+
+/* Swiss Neo-Classical Grid and Framing */
+
+.grid-frame {
+  border: 1px solid rgba(18, 18, 18, 0.1);
+  position: relative;
+}
+
+.architectural-border {
+  border-left: 1px solid var(--color-charcoal);
+  padding-left: calc(var(--spacing-unit) * 4);
+}
+
+/* Buttons & Interactive Elements */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: var(--transition-discipline);
+  cursor: pointer;
+  border: 1px solid var(--color-charcoal);
+  background: transparent;
+  color: var(--color-charcoal);
+}
+
+.btn-primary {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-charcoal);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+/* Macro Imagery & Texture Overlays */
+
+.texture-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.texture-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.macro-grain {
+  filter: contrast(1.1) grayscale(0.2);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.macro-grain:hover {
+  transform: scale(1.05);
+}
+
+/* Utility Classes */
+
+.text-charcoal { color: var(--color-charcoal); }
+.text-steel { color: var(--color-steel); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.bg-paper { background-color: var(--color-paper); }
+
+.serif { font-family: var(--font-serif); }
+.sans { font-family: var(--font-sans); }
+
+.uppercase { text-transform: uppercase; }
+.tracking-widest { letter-spacing: 0.3em; }
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal);
+}
+
+/* Mobile Responsiveness */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 calc(var(--spacing-unit) * 2);
+  }
+  
+  .section-padding {
+    padding: calc(var(--spacing-unit) * 8) 0;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
